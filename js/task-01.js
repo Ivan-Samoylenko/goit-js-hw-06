@@ -3,10 +3,10 @@ const categories = categoriesList.children;
 
 function taskOne(categories) {
   console.log('Number of categories:', categories.length);
-  for (let i = 0; i < categories.length; i += 1) {
-    console.log('Category:', categories[i].querySelector('h2').textContent);
-    console.log('Elements:', categories[i].querySelector('ul').children.length);
-  }
+  [...categories].forEach(category => {
+    console.log('Category:', category.querySelector('h2').textContent);
+    console.log('Elements:', category.querySelector('ul').children.length);
+  });
 }
 
 taskOne(categories);
