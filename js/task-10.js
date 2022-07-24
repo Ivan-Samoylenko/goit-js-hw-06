@@ -11,21 +11,23 @@ function getRandomHexColor() {
 }
 function createBoxes(amount) {
   const sizes = 30;
-  gallery.innerHTML = Array(amount)
+  const currentNumberOfBoxes = gallery.children.length;
+  const currentMarkup = Array(amount)
     .fill(0)
     .reduce(
       (acc, value, i) =>
-        (acc += `<div style="width:${sizes + 10 * i}px; height:${
-          sizes + 10 * i
+        (acc += `<div style="width:${sizes + 10 * (i + currentNumberOfBoxes)}px; height:${
+          sizes + 10 * (i + currentNumberOfBoxes)
         }px; background-color:${getRandomHexColor()}; margin-top: 5px"></div>`),
       ''
     );
+  gallery.insertAdjacentHTML('beforeend', currentMarkup);
 }
 function destroyBoxes() {
   gallery.innerHTML = '';
 }
 function onClickCreateBtn() {
-  if (inputEl.value && gallery.innerHTML === '') {
+  if (inputEl.value) {
     createBoxes(Number(inputEl.value));
   }
 }
