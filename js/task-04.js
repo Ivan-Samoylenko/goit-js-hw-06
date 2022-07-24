@@ -4,17 +4,17 @@ const counterDisplay = document.querySelector('#value');
 
 let currentValue = Number(counterDisplay.textContent);
 
+incrementBtn.addEventListener('click', onClickIncrementBtn);
+decrementBtn.addEventListener('click', onClickDecrementBtn);
+
 function changeCounterDisplay() {
   counterDisplay.textContent = currentValue;
 }
-function increment() {
+function onClickIncrementBtn() {
   currentValue += 1;
   changeCounterDisplay();
 }
-function decrement() {
+function onClickDecrementBtn() {
   currentValue -= 1;
   changeCounterDisplay();
 }
-
-incrementBtn.addEventListener('click', increment);
-decrementBtn.addEventListener('click', decrement);
